@@ -1,5 +1,5 @@
 require 'sinatra'
-require "#{File.dirname(__FILE__)}/team"
+require "#{File.dirname(__FILE__)}/backend"
  
 before do
   ## Basic blacklisting of metacharacters
@@ -16,13 +16,6 @@ end
 
 get '/show' do
   @team1 = Team.new
-  @team2 = Team.new
-  @team3 = Team.new
-  @team4 = Team.new
-  @team5 = Team.new
-  @team6 = Team.new
-  @team7 = Team.new
-  @team8 = Team.new
   erb :show
 end
 
