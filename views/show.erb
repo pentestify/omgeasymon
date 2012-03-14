@@ -1,41 +1,77 @@
 <h1> OMG EASY MON </h1>
 
 <table border="1" bordercolor="#000000" style="background-color:#FFFFFF" width="600" cellpadding="0" cellspacing="0">
-	<tr>
-	 <th></th>
-	 <th>Team 1</th>
-	 <th>Team 2</th>
-	 <th>Team 3</th>
-	 <th>Team 4</th>
-	 <th>Team 5</th>
-	 <th>Team 6</th>
-	 <th>Team 7</th>
-	 <th>Team 8</th>
-	</tr>
-	<tr>
-		<td>HTTP</td>
-		<td><%=@team1.find_endpoint_by_service_name("http").state %></td>
-	</tr>
-	<tr>
-		<td>HTTPs</td>
-		<td><%=@team1.find_endpoint_by_service_name("https").state %></td>
-	</tr>
-	<tr>
-		<td>FTP</td>
-		<td><%=@team1.find_endpoint_by_service_name("ftp").state %></td>
-	</tr>
-	<tr>
-		<td>MySQL</td>
-		<td><%=@team1.find_endpoint_by_service_name("mysql").state %></td>
-	</tr>
-	<tr>
-		<td>SMB</td>
-		<td><%=@team1.find_endpoint_by_service_name("smb_139").state %></td>
-	</tr>
-	<tr>
-		<td>SMB 445</td>
-		<td><%=@team1.find_endpoint_by_service_name("smb_445").state %></td>
-	</tr>
+  <tr>
+   <th></th>
+   <th>Team 1</th>
+   <th>Team 2</th>
+   <th>Team 3</th>
+   <th>Team 4</th>
+   <th>Team 5</th>
+   <th>Team 6</th>
+   <th>Team 7</th>
+   <th>Team 8</th>
+  </tr>
+  <tr>
+    <td>HTTP</td>
+    <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("http").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("http") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("http") %> </td>
+     <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <td>HTTPS</td>
+    <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("https").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("https") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("https") %> </td>
+     <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <td>FTP</td>
+   <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("ftp").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("ftp") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("ftp") %> </td>
+     <% end %>
+   <%end %>
+  </tr>
+  <tr>
+    <td>MySQL</td>
+    <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("mysql").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("mysql") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("mysql") %> </td>
+     <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <td>SMB</td>
+   <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("smb_139").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("smb_139") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("smb_139") %> </td>
+     <% end %>
+    <% end %>
+  </tr>
+  <tr>
+    <td>SMB 445</td>
+    <% @watcher.teams.each do |team| %>
+     <% if team.find_endpoint_by_service_name("smb_445").state %>
+       <td bgcolor="#00FF00"> <%= team.find_host_by_service_name("smb_445") %> </td>
+     <% else %>
+       <td bgcolor="#FF0000"> <%= team.find_host_by_service_name("smb_445") %> </td>
+     <% end %>
+    <% end %>
+  </tr>
 </table>
 
 

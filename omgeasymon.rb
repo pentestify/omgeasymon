@@ -1,5 +1,5 @@
 require 'sinatra'
-require "#{File.dirname(__FILE__)}/backend"
+require "#{File.dirname(__FILE__)}/watcher"
  
 before do
   ## Basic blacklisting of metacharacters
@@ -7,7 +7,7 @@ before do
 end
  
 get '/' do
- erb :index
+ redirect to "/show"
 end
 
 get '/exception' do
@@ -15,7 +15,10 @@ get '/exception' do
 end
 
 get '/show' do
-  @team1 = Watcher.new.find_team_by_name "team1"
+  # Get the watcher
+  @watcher = Watcher.instance
+  # Parse the latest scan data
+  @watcher.watch
   erb :show
 end
 
