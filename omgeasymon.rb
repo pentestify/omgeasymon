@@ -15,7 +15,7 @@ get '/exception' do
 end
 
 get '/show' do
-  @team1 = Team.new
+  @team1 = Watcher.new.find_team_by_name "team1"
   erb :show
 end
 

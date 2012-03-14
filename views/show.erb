@@ -14,27 +14,27 @@
 	</tr>
 	<tr>
 		<td>HTTP</td>
-		<td><%=@team1.http_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("http").state %></td>
 	</tr>
 	<tr>
 		<td>HTTPs</td>
-		<td><%=@team1.https_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("https").state %></td>
 	</tr>
 	<tr>
 		<td>FTP</td>
-		<td><%=@team1.ftp_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("ftp").state %></td>
 	</tr>
 	<tr>
 		<td>MySQL</td>
-		<td><%=@team1.mysql_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("mysql").state %></td>
 	</tr>
 	<tr>
 		<td>SMB</td>
-		<td><%=@team1.smb_139_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("smb_139").state %></td>
 	</tr>
 	<tr>
 		<td>SMB 445</td>
-		<td><%=@team1.smb_445_up %></td>
+		<td><%=@team1.find_endpoint_by_service_name("smb_445").state %></td>
 	</tr>
 </table>
 
