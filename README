@@ -1,10 +1,10 @@
 super-simple CCDC monitoring tool
 
 setup:
- - install sum rubies
- - git clone
- - gem install sinatra
- - type 'rackup'
+ - install some rubies (use rvm, it's super awesome)
+ - $ git clone 
+ - $ gem install sinatra
+ - $ rackup
  - browse to :9292
  - read the code and realize i'm scannin yer networkz
 
