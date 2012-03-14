@@ -77,7 +77,7 @@ class Watcher
         #
         # hang out for a minute
         #
-        sleep 60
+        sleep 30
       end
     end
   end
@@ -95,6 +95,8 @@ class Watcher
       #
       # Open up a file for this service
       #
+      next unless File.exists? "#{File.dirname(__FILE__)}/data/#{service_name}.gnmap"
+      
       lines = File.open("#{File.dirname(__FILE__)}/data/#{service_name}.gnmap").read.split("\n")
       lines.each do |line|
         # 
